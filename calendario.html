@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Minhas Datas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📅 Memórias por Mês</h1>
+        <nav>
+            <a href="index.html" class="btn">🏠 Início</a>
+        </nav>
+    </header>
+
+    <main class="calendar-container">
+        <div class="month-selector">
+            <select id="monthSelect" onchange="loadMonthlyMemory()">
+                <option value="jan">Janeiro</option>
+                <option value="fev">Fevereiro</option>
+                <option value="mar">Março</option>
+                <option value="abr">Abril</option>
+                <option value="mai">Maio</option>
+                <option value="jun">Junho</option>
+                <option value="jul">Julho</option>
+                <option value="ago">Agosto</option>
+                <option value="set">Setembro</option>
+                <option value="out">Outubro</option>
+                <option value="nov">Novembro</option>
+                <option value="dez">Dezembro</option>
+            </select>
+        </div>
+
+        <div class="memory-list">
+            <div class="month-header" style="text-align: center; margin-bottom: 10px;">
+                <input type="text" id="displayMonthCustom" class="editable-title" placeholder="Título da Memória...">
+            </div>
+            <textarea id="month-text" rows="20" placeholder="Escreva suas memórias quadriculadas..."></textarea>
+        </div>
+
+    <div class="toolbar" style="display: flex; justify-content: center; gap: 10px; margin: 20px 0;">
+        <button onclick="baixarCalendario()" class="btn" style="background: #4CAF50;">📸 Guardar Imagem</button>
+        <button onclick="partilharDiario()" class="btn" style="background: #3498db;">📤 Partilhar</button>
+        <button onclick="resetCalendario()" class="btn" style="background: #ff4d4d;">🗑️ Limpar Mês</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+    </div>
+
+    
+    </main>
+
+    <script src="script.js"></script>
+    <script>window.onload = () => { setupAutoSave(); loadMonthlyMemory(); loadAlbumImages(); }</script>
+</body>
+</html>

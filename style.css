@@ -1,0 +1,301 @@
+body {
+    background-color: #f8f4f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+header { text-align: center; margin-bottom: 20px; }
+
+/* Botões de Navegação */
+.btn {
+    text-decoration: none;
+    background: #ffb7c5;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 20px;
+    margin: 5px;
+    display: inline-block;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.btn:hover { background: #ff9eaf; }
+
+/* Álbum de Figurinhas */
+.album-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.slot {
+    width: 140px; height: 180px;
+    border: 2px dashed #e0d0d0;
+    border-radius: 10px;
+    display: flex; justify-content: center; align-items: center;
+    cursor: pointer; background: #fff;
+}
+.slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+
+/* Estilo Caderno (Review) */
+.journal-page {
+    background: #fffafa;
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    padding: 30px;
+    border-left: 12px solid #ffb7c5;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
+}
+
+.review-box { border: 1px solid #f0e0e0; padding: 15px; background: white; margin-bottom: 10px; }
+
+textarea {
+    width: 100%;
+    border: none;
+    background: repeating-linear-gradient(transparent, transparent 24px, #f5eaea 25px);
+    line-height: 25px;
+    font-family: 'Comic Sans MS', cursive;
+    resize: none;
+}
+
+input[type="text"] { border: none; border-bottom: 1px solid #ffb7c5; padding: 5px; width: 80%; }
+
+/* Estilo Calendário */
+.calendar-container { background: white; padding: 20px; border-radius: 15px; width: 100%; max-width: 500px; text-align: center; }
+select { padding: 8px; border-radius: 10px; border: 1px solid #ffb7c5; margin-bottom: 15px; }
+
+/* Garante que a imagem preencha o slot mas permita o clique */
+.slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    position: absolute; /* Para ficar por cima do número */
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.slot {
+    position: relative; /* Necessário para o posicionamento da imagem */
+    overflow: hidden;
+}
+
+.number {
+    position: relative;
+    z-index: 0;
+}
+
+.btn-clear {
+    background: #ff4d4d; /* Vermelho */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 20px 0;
+    transition: 0.3s;
+}
+
+.btn-clear:hover {
+    background: #cc0000;
+    transform: scale(1.05);
+}
+
+
+/* Container que agrupa a foto e a legenda como uma Polaroid */
+.photo-group {
+    background: white;
+    padding: 10px 10px 20px 10px; /* Borda branca: topo, lados e fundo maior */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Sombra para parecer papel */
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.photo-group:hover {
+    transform: rotate(-2deg) scale(1.02); /* Leve inclinação ao passar o mouse */
+}
+
+/* O slot da foto dentro da Polaroid */
+.slot {
+    width: 150px;
+    height: 150px; /* Quadrada como uma Polaroid clássica */
+    background: #eee;
+    border: 1px solid #ddd;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* A legenda embaixo da foto */
+.caption {
+    width: 100%;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    font-family: 'Indie Flower', cursive; /* Uma fonte que parece escrita à mão */
+    color: #333;
+    outline: none;
+}
+
+.journal-page {
+    background: #fffafa;
+    padding: 40px;
+    border-left: 15px solid #ffb7c5;
+    /* Adiciona isto para o print não cortar */
+    min-width: 800px; 
+    margin: 20px auto;
+}
+
+/* Container da Capa do Livro */
+.book-cover-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.polaroid-book {
+    position: relative;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 2px 5px 15px rgba(0,0,0,0.1);
+    transform: rotate(-2deg);
+}
+
+/* Washi Tapes (Fitas Adesivas) */
+.tape-top, .tape-bottom {
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    background: rgba(255, 183, 197, 0.6); /* Rosa Transparente */
+    z-index: 10;
+    border-left: 2px dashed rgba(255,255,255,0.4);
+    border-right: 2px dashed rgba(255,255,255,0.4);
+}
+
+.tape-top { top: -15px; left: -20px; transform: rotate(-35deg); }
+.tape-bottom { 
+    bottom: -10px; right: -20px; transform: rotate(-35deg); 
+    background: rgba(173, 216, 230, 0.5); /* Azul Transparente */
+}
+
+/* Ajuste das Fontes do Diário */
+textarea, .review-box input {
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.1rem;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+/* Estilos para a Capa do Livro e Fitas */
+.book-cover-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.polaroid-book {
+    position: relative;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 2px 5px 15px rgba(0,0,0,0.1);
+    transform: rotate(-2deg);
+}
+
+.tape-top, .tape-bottom {
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    background: rgba(255, 183, 197, 0.6); /* Rosa Transparente */
+    z-index: 10;
+    border-left: 2px dashed rgba(255,255,255,0.4);
+    border-right: 2px dashed rgba(255,255,255,0.4);
+}
+
+.tape-top { top: -15px; left: -20px; transform: rotate(-35deg); }
+.tape-bottom { 
+    bottom: -10px; right: -20px; transform: rotate(-35deg); 
+    background: rgba(173, 216, 230, 0.5); /* Azul Transparente */
+}
+
+/* Deixa o texto da resenha com cara de escrita à mão */
+textarea, .review-box input {
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.1rem;
+    border: none;
+    background: transparent;
+}
+
+/* Container que imita a folha quadriculada */
+.memory-list {
+    background-color: #ffffff;
+    /* Cria o padrão quadriculado */
+    background-image: 
+        linear-gradient(#e5e5e5 1px, transparent 1px),
+        linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+    background-size: 20px 20px; /* Tamanho dos quadradinhos */
+    background-position-y: 0 - 1px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    min-height: 400px;
+}
+
+/* Ajuste do textarea para ficar transparente sobre o quadriculado */
+#month-text {
+    width: 100%;
+    background: transparent; /* Importante para ver o fundo */
+    border: none;
+    resize: none;
+    outline: none;
+    
+    font-family: 'Indie Flower', cursive;
+    font-size: 16px;
+    line-height: 20px; /* Alinha o texto com o tamanho do quadro */
+    padding-top: 0px;
+    margin-top: 8px;
+    color: #333;
+    display: block;
+}
+
+.editable-title {
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.4rem; /* Antes era 1.8rem, agora está menor */
+    font-weight: bold;
+    color: #ffb7c5;
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 60%; /* Reduzi a largura para o traço não ocupar a tela toda */
+    text-align: center; /* Centraliza o texto dentro do input */
+    padding: 5px 0;
+    border-bottom: 2px dashed #f0e0e0;
+    margin: 0 auto; /* Garante que o input em si fique centralizado na div */
+    display: block;
+}
+
+.editable-title::placeholder {
+    color: #ffdce3;
+    font-size: 1.2rem;
+}
+
+

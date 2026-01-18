@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resenha de Livros - Diário</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav><a href="index.html" class="btn">🏠 Voltar ao Início</a></nav>
+    </header>
+
+    <div class="journal-page">
+        <div class="left-side">
+            <h2>Book Review</h2>
+            
+            <div class="book-cover-container">
+                <div class="polaroid-book">
+                    <div class="tape-top"></div>
+                    <div class="slot" data-id="book-cover" onclick="triggerUpload(this)">
+                        <span class="number">+ Capa</span>
+                        <input type="file" accept="image/*" onchange="previewImage(event, this)" hidden>
+                    </div>
+                    <div class="tape-bottom"></div>
+                </div>
+            </div>
+
+            <div class="review-box">
+                <p><strong>Title:</strong> <input type="text" id="rev-title" placeholder="Nome do livro..."></p>
+                <p><strong>Author:</strong> <input type="text" id="rev-author" placeholder="Autor..."></p>
+                <p>Overall: <input type="text" id="rev-rating" placeholder="⭐⭐⭐⭐⭐"></p>
+            </div>
+            <h3>Summary</h3>
+            <textarea id="rev-summary" rows="8"></textarea>
+        </div>
+
+        <div class="right-side">
+            <div class="review-box">
+                <h3>Favorite Quotes</h3>
+                <textarea id="rev-quotes" rows="5"></textarea>
+            </div>
+            <h3>Thoughts</h3>
+            <textarea id="rev-thoughts" rows="12"></textarea>
+        </div>
+    </div>
+
+    <div class="toolbar">
+        <button onclick="baixarResenha()" class="btn" style="background: #4CAF50;">📸 Guardar Imagem</button>
+        <button onclick="partilharDiario()" class="btn" style="background: #3498db;">📤 Partilhar</button>
+        <button onclick="resetReview()" class="btn" style="background: #ff4d4d;">🗑️ Limpar</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
